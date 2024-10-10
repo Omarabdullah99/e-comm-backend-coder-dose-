@@ -1,9 +1,18 @@
 const express= require('express')
 const server= express()
 const mongoose= require('mongoose')
+const ProductRoute= require('./routes/ProductRoute')
+
+//middleware
+server.use(express.json())
+
+//router
+server.use('/products', ProductRoute.router) 
+
+
+
 
 const MONGODB_URL="mongodb+srv://omarabdullah917303:OaiCIAOPo3NKJgN6@e-commerce-backend-oct2.jlnsq.mongodb.net/?retryWrites=true&w=majority&appName=e-commerce-backend-oct24"
-
 main().catch(err => console.log(err))
 async function main(){
     await mongoose.connect(MONGODB_URL)
