@@ -3,13 +3,15 @@ const server= express()
 const mongoose= require('mongoose')
 const ProductRoute= require('./routes/ProductRoute')
 const CategoryRoute= require('./routes/CategoryRouter')
+const BrandsRoute= require('./routes/BransRoute')
 
 //middleware
 server.use(express.json())
 
 //router
 server.use('/products', ProductRoute.router)
-server.use('/category', CategoryRoute.router) 
+server.use('/category', CategoryRoute.router)
+server.use('/brands', BrandsRoute.router)
 
 
 
