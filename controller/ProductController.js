@@ -54,6 +54,21 @@ exports.fetchAllProduct = async (req, res) => {
     res.set("X-Total-Count", totalDocs);
     res.status(200).json(docs);
   } catch (err) {
+    res.status(400).json(err)
     console.log("Error of fetallproduct", err);
   }
 };
+
+
+exports.fetchProductById=async(req,res)=>{
+    const {id}= req.params
+    const product= await ProductModel.findById(id)
+    // console.log('signle product',product)
+    try {
+        res.status(200).json(product)
+        
+    } catch (err) {
+        res.status(400).json(err)
+        
+    }
+}
