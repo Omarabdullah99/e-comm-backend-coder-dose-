@@ -8,7 +8,9 @@ const cors= require('cors')
 
 //middleware
 server.use(express.json())
-server.use(cors())
+server.use(cors({
+    exposedHeaders:['X-Total-Count']
+}))
 
 
 //router
