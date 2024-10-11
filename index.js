@@ -4,9 +4,12 @@ const mongoose= require('mongoose')
 const ProductRoute= require('./routes/ProductRoute')
 const CategoryRoute= require('./routes/CategoryRouter')
 const BrandsRoute= require('./routes/BransRoute')
+const cors= require('cors')
 
 //middleware
 server.use(express.json())
+server.use(cors())
+
 
 //router
 server.use('/products', ProductRoute.router)

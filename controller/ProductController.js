@@ -72,3 +72,17 @@ exports.fetchProductById=async(req,res)=>{
         
     }
 }
+
+
+exports.updateProduct=async(req,res)=>{
+  const {id}= req.params
+  // console.log('id for update', id)
+  try {
+    const product= await ProductModel.findByIdAndUpdate(id, req.body,{new:true})
+    res.status(200).json(product)
+  } catch (err) {
+    res.status(400).json(err)
+    
+  }
+
+}
