@@ -4,6 +4,8 @@ const mongoose= require('mongoose')
 const ProductRoute= require('./routes/ProductRoute')
 const CategoryRoute= require('./routes/CategoryRouter')
 const BrandsRoute= require('./routes/BransRoute')
+const AuthRoute= require('./routes/AuthRoute')
+const UserRoute= require('./routes/UserRoute')
 const cors= require('cors')
 
 //middleware
@@ -17,6 +19,8 @@ server.use(cors({
 server.use('/products', ProductRoute.router)
 server.use('/category', CategoryRoute.router)
 server.use('/brands', BrandsRoute.router)
+server.use('/auth',AuthRoute.router)
+server.use('/user',UserRoute.router)
 
 
 
