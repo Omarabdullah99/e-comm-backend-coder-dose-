@@ -6,6 +6,7 @@ const CategoryRoute= require('./routes/CategoryRouter')
 const BrandsRoute= require('./routes/BransRoute')
 const AuthRoute= require('./routes/AuthRoute')
 const UserRoute= require('./routes/UserRoute')
+const CartRoute= require('./routes/CartRoute')
 const cors= require('cors')
 
 //middleware
@@ -21,6 +22,7 @@ server.use('/category', CategoryRoute.router)
 server.use('/brands', BrandsRoute.router)
 server.use('/auth',AuthRoute.router)
 server.use('/user',UserRoute.router)
+server.use('/cart',CartRoute.router)
 
 
 
