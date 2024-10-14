@@ -18,3 +18,18 @@ exports.findUserById = async (req, res) => {
     res.status(400).json(err);
   }
 };
+
+exports.updateUser=async(req,res)=>{
+  const {id}=req.params
+  try {
+
+    const updateUser = await UserModel.findByIdAndUpdate(
+      id,
+      { $push: { addresses: { $each: req.body.addresses } } },
+      { new: true }
+    );
+    res.status(200).json(updateUser)
+  } catch (error) {
+    res.status(400).json(error)
+  }
+}
