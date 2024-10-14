@@ -1,9 +1,9 @@
 const express = require("express");
-const { createOrder } = require("../controller/OrderController");
+const { createOrder, fetchOrderByuser } = require("../controller/OrderController");
 
 
 const router = express.Router();
 
-router.post("/", createOrder)
+router.post("/", createOrder).get('/:id',fetchOrderByuser)
 
 exports.router= router

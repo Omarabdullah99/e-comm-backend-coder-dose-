@@ -23,3 +23,14 @@ exports.createOrder = async (req, res) => {
     res.status(400).json(error);
   }
 };
+
+exports.fetchOrderByuser=async(req,res)=>{
+    const {id}= req.params
+    try {
+        const doc= await OrderModel.find({user: id})
+        res.status(200).json(doc)
+        
+    } catch (error) {
+        res.status(400).json(error)
+    }
+}
