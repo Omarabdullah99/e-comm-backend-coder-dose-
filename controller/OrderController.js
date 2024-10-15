@@ -4,7 +4,7 @@ const { ProductModel } = require("../model/ProductModel");
 
 exports.createOrder = async (req, res) => {
   const order = new OrderModel(req.body);
-  console.log("first order for req.body", order);
+  // console.log("first order for req.body", order);
   // here we have to update stocks;
   for (let item of order.items) {
     let product = await ProductModel.findOne({ _id: item.product.id });
@@ -33,4 +33,14 @@ exports.fetchOrderByuser=async(req,res)=>{
     } catch (error) {
         res.status(400).json(error)
     }
+}
+
+exports.fetchAllOrders=async(req,res)=>{
+  try {
+    const orders= await OrderModel.find({})
+    res.status(200).json(orders)
+  } catch (error) {
+    res.status(400).json(error)
+    
+  }
 }
