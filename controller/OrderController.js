@@ -54,3 +54,18 @@ exports.fetchAllOrders=async(req,res)=>{
     
   }
 }
+
+exports.updateOrder=async(req,res)=>{
+  const {id}= req.params
+  try {
+    const doc= await OrderModel.findByIdAndUpdate(id, req.body, {new:true})
+    res.status(200).json(doc)
+  } catch (error) {
+    res.status(400).json(error)
+  }
+
+}
+
+
+
+
