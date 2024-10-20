@@ -43,7 +43,7 @@ server.get('/', (req,res)=>{
 })
 
 server.get('/hello',(req,res)=>{
-    res.json({status:'update nri'})
+    res.json({status:'update nri last'})
 })
 
 server.listen(8000,()=>{
