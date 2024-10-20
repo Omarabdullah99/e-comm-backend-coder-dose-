@@ -13,8 +13,10 @@ const cors= require('cors')
 //middleware
 server.use(express.json())
 server.use(cors({
-    origin: 'http://localhost:5173',
-    exposedHeaders:['X-Total-Count']
+    origin: 'http://localhost:5173', // এখানে ফ্রন্টএন্ড URL যোগ করো
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'], // যে HTTP মেথডগুলো ব্যবহার করছো সেগুলো এখানে যুক্ত করো
+    allowedHeaders: ['Content-Type', 'Authorization'], // প্রয়োজনীয় হেডারগুলো যুক্ত করো
+    exposedHeaders: ['X-Total-Count']
 }))
 
 
@@ -41,7 +43,7 @@ server.get('/', (req,res)=>{
 })
 
 server.get('/hello',(req,res)=>{
-    res.json({status:'update'})
+    res.json({status:'update nri'})
 })
 
 server.listen(8000,()=>{
