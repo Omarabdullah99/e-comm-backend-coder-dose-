@@ -13,6 +13,7 @@ const cors= require('cors')
 //middleware
 server.use(express.json())
 server.use(cors({
+    origin: 'http://localhost:5173',
     exposedHeaders:['X-Total-Count']
 }))
 
@@ -37,6 +38,10 @@ async function main(){
 } 
 server.get('/', (req,res)=>{
     res.json({staus:"success"})
+})
+
+server.get('/hello',(req,res)=>{
+    res.json({status:'update'})
 })
 
 server.listen(8000,()=>{
