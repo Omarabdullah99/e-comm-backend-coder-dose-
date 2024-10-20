@@ -13,9 +13,9 @@ const cors= require('cors')
 //middleware
 server.use(express.json())
 server.use(cors({
-    origin: 'http://localhost:5173', // এখানে ফ্রন্টএন্ড URL যোগ করো
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'], // যে HTTP মেথডগুলো ব্যবহার করছো সেগুলো এখানে যুক্ত করো
-    allowedHeaders: ['Content-Type', 'Authorization'], // প্রয়োজনীয় হেডারগুলো যুক্ত করো
+    origin: '*', // সব রিকোয়েস্ট অনুমোদিত হবে
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
     exposedHeaders: ['X-Total-Count']
 }))
 
@@ -39,12 +39,10 @@ async function main(){
     console.log('database connected')
 } 
 server.get('/', (req,res)=>{
-    res.json({staus:"success"})
+    res.json({staus:"success update"})
 })
 
-server.get('/hello',(req,res)=>{
-    res.json({status:'update nri last'})
-})
+
 
 server.listen(8000,()=>{
     console.log('server is running port 8000')
