@@ -16,7 +16,7 @@ const PORT= process.env.PORT || 8000
 //middleware
 server.use(express.json())
 server.use(cors({
-    origin: '*', // সব রিকোয়েস্ট অনুমোদিত হবে
+    origin: 'https://omar-store303.netlify.app', // সব রিকোয়েস্ট অনুমোদিত হবে
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     exposedHeaders: ['X-Total-Count']
