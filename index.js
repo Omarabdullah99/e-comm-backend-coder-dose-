@@ -10,6 +10,8 @@ const CartRoute= require('./routes/CartRoute')
 const OrderRoute= require('./routes/OrderRoute')
 const cors= require('cors')
 
+const PORT = process.env.PORT || 8000;
+
 //middleware
 server.use(express.json())
 server.use(cors({
@@ -44,8 +46,8 @@ server.get('/', (req,res)=>{
 
 
 
-server.listen(8000,()=>{
-    console.log('server is running port 8000')
+server.listen(PORT,()=>{
+    console.log(`Server is running on port ${PORT}`);
 })
 
 //omarabdullah917303 password:OaiCIAOPo3NKJgN6
