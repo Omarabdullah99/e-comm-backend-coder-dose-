@@ -9,8 +9,9 @@ const UserRoute= require('./routes/UserRoute')
 const CartRoute= require('./routes/CartRoute')
 const OrderRoute= require('./routes/OrderRoute')
 const cors= require('cors')
+require('dotenv').config()
 
-const PORT = process.env.PORT || 8000;
+const PORT= process.env.PORT || 8000
 
 //middleware
 server.use(express.json())
